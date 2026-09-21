@@ -208,13 +208,13 @@
 <div class="container">
     <h1>CALCULADORA EVOLUCIÓN SALARIAL</h1>
     <div class="subtitle">Simulación comparativa 2026–2029</div>
-    <p class="desc-text">Comparación entre el preacuerdo del 23 de julio y la propuesta del Ministerio basada en IPC real.</p>
+    <p class="desc-text">Comparación entre la última propuesta de la dirección (junio) y la propuesta del Ministerio basada en IPC real.</p>
     <p class="privacy-note">Los datos se calculan únicamente en tu navegador: no se almacenan ni se envían.</p>
 
     <div class="notice-box">
         <h3>Marco de comparación</h3>
         <p>Esta simulación cubre exclusivamente 2026–2029. No es riguroso proyectar sus resultados indefinidamente, ya que a partir de 2030 dependerán de futuras negociaciones.</p>
-        <p><strong>PREACUERDO DEL 23 DE JULIO:</strong> Contemplaba una Revisión Salarial General (RSG) del 5 % desde enero de 2026 y otro 5 % desde abril de 2027. Además, incluía un 0,5 % de RSI y 0,5 % de Promociones (estos no se suman automáticamente a la base salarial general en esta calculadora). Durante 2028 y 2029 la base permanece constante.</p>
+        <p><strong>ÚLTIMA PROPUESTA DE LA DIRECCIÓN (JUNIO):</strong> Contemplaba un incremento del 3 % en 2026 aplicado desde enero (aplicado unilateralmente) y un 3 % en 2027 aplicado desde abril. Durante 2028 y 2029 la base permanece constante (0 % de incremento adicional en este escenario).</p>
         <p><strong>PROPUESTA DEL MINISTERIO:</strong> Aplica IPC + 2 puntos porcentuales en 2026 y 2027 (desde enero), IPC + 2 puntos en 2028 (desde abril), e IPC + 1,95 puntos en 2029 (desde abril).</p>
         <p><strong>PAGO ÚNICO DE 2.000 €:</strong> Existe un pago único de 2.000 € brutos no consolidable que está incluido en ambos escenarios. Se suma al acumulado, pero no modifica las bases.</p>
     </div>
@@ -274,10 +274,10 @@
         <div class="result-section-title">1. Base Salarial Final (Consolidada)</div>
         <div class="cards-grid-2">
             <div class="res-card gray">
-                <h4>SALARIO BASE 2029: PREACUERDO 23 DE JULIO</h4>
+                <h4>SALARIO BASE 2029: PROPUESTA DIRECCIÓN (JUNIO)</h4>
                 <div class="main-val" id="res-base-pre">0,00 €</div>
                 <div class="sub-val" id="res-cons-pre">Subida frente a 2025: +0,00 €</div>
-                <div class="info-text">RSI y promociones no se incorporan a esta base general.</div>
+                <div class="info-text">Base estable durante 2028 y 2029.</div>
             </div>
             <div class="res-card red">
                 <h4>SALARIO BASE 2029: PROPUESTA MINISTERIO</h4>
@@ -290,7 +290,7 @@
         <div class="result-section-title">2. Dinero Adicional Acumulado (2026–2029)</div>
         <div class="cards-grid-2">
             <div class="res-card gray">
-                <h4>DINERO ADICIONAL ACUMULADO: PREACUERDO</h4>
+                <h4>DINERO ADICIONAL ACUMULADO: PROPUESTA DIRECCIÓN</h4>
                 <div class="main-val" id="res-add-pre">0,00 €</div>
                 <div class="info-text">Cantidad cobrada de más respecto a mantener el salario de 2025 congelado. Incluye el pago de 2.000 €.</div>
                 <div class="info-text" style="margin-top: 8px; opacity: 0.7;" id="res-tot-pre">Total percibido 2026-2029: 0,00 €</div>
@@ -305,7 +305,7 @@
 
         <div class="diff-block">
             <h3>DIFERENCIA ACUMULADA ENTRE AMBAS OPCIONES 2026–2029</h3>
-            <h4>Propuesta del Ministerio frente al preacuerdo del 23 de julio</h4>
+            <h4>Propuesta del Ministerio frente a la última propuesta de la dirección</h4>
             <div class="diff-val" id="res-diff-val">0,00 €</div>
             <div class="diff-note">Diferencia de dinero adicional acumulado entre ambas opciones durante 2026–2029. Los 2.000 € están incluidos en ambos lados, por lo que no generan esta diferencia.</div>
         </div>
@@ -322,14 +322,14 @@
         <div class="card">
             <h2>EVOLUCIÓN DE LA BASE SALARIAL: DOS ESCENARIOS</h2>
             <div class="chart-legend">
-                <span class="legend-item"><span class="dot" style="background: #6f7780;"></span>Preacuerdo: 5 % enero '26 / 5 % abril '27</span>
+                <span class="legend-item"><span class="dot" style="background: #6f7780;"></span>Dirección (Junio): 3 % enero '26 / 3 % abril '27</span>
                 <span class="legend-item"><span class="dot" style="background: #E30613;"></span>Propuesta: IPC real + diferencial</span>
             </div>
             <div class="chart-container">
                 <canvas id="chartCanvas"></canvas>
             </div>
             <p style="text-align: center; font-size: 13px; color: #666; margin-top: 15px;">
-                Gris: preacuerdo de julio. Rojo: propuesta del Ministerio.<br>La gráfica representa la base salarial consolidada.
+                Gris: última propuesta de la dirección en junio. Rojo: propuesta del Ministerio.<br>La gráfica representa la base salarial consolidada.
             </p>
         </div>
 
@@ -345,11 +345,11 @@
         <div class="cards-grid-2">
             <div class="card">
                 <h2>Cómo interpretar el resultado</h2>
-                <p>Una revisión que entra en abril modifica la base anual, pero ese año solo se cobra con la nueva base durante nueve meses. El pago de 2.000 € está en ambos escenarios y no consolidida.</p>
+                <p>Una revisión que entra en abril modifica la base anual, pero ese año solo se cobra con la nueva base durante nueve meses. El pago de 2.000 € está en ambos escenarios y no consolida.</p>
             </div>
             <div class="card">
                 <h2>Metodología y límites</h2>
-                <p style="font-size:14px; line-height:1.5;">Simulación orientativa. Preacuerdo: +5% RSG enero 2026, +5% abril 2027. Ministerio: IPC+2% (2026-2028), IPC+1.95% (2029). 2028 y 2029 aplican en abril. No incluye IRPF, cotizaciones ni complementos personales.</p>
+                <p style="font-size:14px; line-height:1.5;">Simulación orientativa. Propuesta Dirección (Junio): +3% enero 2026 (aplicado unilateralmente), +3% abril 2027. Ministerio: IPC+2% (2026-2028), IPC+1.95% (2029). 2028 y 2029 aplican en abril. No incluye IRPF, cotizaciones ni complementos personales.</p>
             </div>
         </div>
 
@@ -457,17 +457,17 @@
         window.scrollTo(0, 0);
     }
 
-    // Calculos matemáticos
+    // Calculos matemáticos corregidos (3% en enero 2026, 3% en abril 2027)
     function calcularMotor(baseInit, ipc26, ipc27, ipc28, ipc29) {
         var pagoUnico = 2000;
         var refCongelada = baseInit * 4;
 
-        // Preacuerdo
-        var preBase26 = baseInit * 1.05;
-        var prePerc26 = preBase26;
+        // Propuesta Dirección (Junio): 3% en enero 2026, 3% en abril 2027
+        var preBase26 = baseInit * 1.03;
+        var prePerc26 = preBase26; // Aplicado en enero
         
-        var preBase27 = preBase26 * 1.05;
-        var prePerc27 = (preBase26 * (3/12)) + (preBase27 * (9/12));
+        var preBase27 = preBase26 * 1.03;
+        var prePerc27 = (preBase26 * (3/12)) + (preBase27 * (9/12)); // Aplicado en abril
         
         var preBase28 = preBase27;
         var prePerc28 = preBase27;
@@ -532,11 +532,9 @@
         var errorEl = document.getElementById('error-msg');
         var errorText = "";
 
-        // Validación inicial
         if (baseInit <= 0 || isNaN(ipc26) || isNaN(ipc27) || isNaN(ipc28) || isNaN(ipc29)) {
             errorText = "Error: Por favor, introduce números válidos mayores que cero en todos los campos.";
         } 
-        // Validación estricta por Banda Salarial
         else if (bandaSel !== 'manual') {
             var lim = limitesBandas[bandaSel];
             if (baseInit < lim.min || baseInit > lim.max) {
@@ -573,7 +571,7 @@
         elDiff.innerText = (dSim.diferencia >= 0 ? "+" : "") + formatearMoneda(dSim.diferencia);
         elDiff.style.color = dSim.diferencia >= 0 ? "#115024" : "var(--ccoo-red)";
 
-        var stHTML = "<thead><tr><th>CONCEPTO</th><th class='th-gray'>PREACUERDO</th><th class='th-red'>MINISTERIO</th></tr></thead><tbody>";
+        var stHTML = "<thead><tr><th>CONCEPTO</th><th class='th-gray'>PROPUESTA DIRECCIÓN (JUNIO)</th><th class='th-red'>MINISTERIO</th></tr></thead><tbody>";
         stHTML += "<tr><td>Base 2025</td><td class='col-gray'>" + formatearMoneda(dSim.baseInit) + "</td><td class='col-red'>" + formatearMoneda(dSim.baseInit) + "</td></tr>";
         stHTML += "<tr><td>Base tras 2029</td><td class='col-gray'>" + formatearMoneda(dSim.pre.baseFinal) + "</td><td class='col-red'>" + formatearMoneda(dSim.min.baseFinal) + "</td></tr>";
         stHTML += "<tr><td>Subida acumulada</td><td class='col-gray'>+" + formatearMoneda(dSim.pre.subidaEuros) + " (+" + formatearPorcentaje(dSim.pre.subidaPct) + "%)</td><td class='col-red'>+" + formatearMoneda(dSim.min.subidaEuros) + " (+" + formatearPorcentaje(dSim.min.subidaPct) + "%)</td></tr>";
@@ -582,11 +580,11 @@
         stHTML += "</tbody>";
         document.getElementById('summary-table').innerHTML = stHTML;
 
-        var anHTML = "<thead><tr><th>Año</th><th>IPC</th><th class='th-gray'>RSG Preacuerdo</th><th class='th-gray'>Base Preacuerdo</th><th class='th-gray'>Percibido Preacuerdo</th><th class='th-red'>Subida Ministerio</th><th class='th-red'>Base Ministerio</th><th class='th-red'>Percibido Ministerio</th></tr></thead><tbody>";
+        var anHTML = "<thead><tr><th>Año</th><th>IPC</th><th class='th-gray'>Propuesta Dirección</th><th class='th-gray'>Base Dirección</th><th class='th-gray'>Percibido Dirección</th><th class='th-red'>Subida Ministerio</th><th class='th-red'>Base Ministerio</th><th class='th-red'>Percibido Ministerio</th></tr></thead><tbody>";
         
         var yData = [
-            {y: 2026, rPre: "5% (Enero)", rMin: "IPC+2% (Enero)", pctM: dSim.min.pcts[0]},
-            {y: 2027, rPre: "5% (Abril)", rMin: "IPC+2% (Enero)", pctM: dSim.min.pcts[1]},
+            {y: 2026, rPre: "3% (Enero)", rMin: "IPC+2% (Enero)", pctM: dSim.min.pcts[0]},
+            {y: 2027, rPre: "3% (Abril)", rMin: "IPC+2% (Enero)", pctM: dSim.min.pcts[1]},
             {y: 2028, rPre: "0%", rMin: "IPC+2% (Abril)", pctM: dSim.min.pcts[2]},
             {y: 2029, rPre: "0%", rMin: "IPC+1.95% (Abril)", pctM: dSim.min.pcts[3]}
         ];
@@ -606,7 +604,6 @@
         anHTML += "</tbody>";
         document.getElementById('annual-table').innerHTML = anHTML;
 
-        // Mostrar todo
         var panel = document.getElementById('results-panel');
         panel.style.display = 'block';
         
@@ -691,7 +688,7 @@
             }
         }
 
-        drawLine(ptsPre, '#6f7780'); // Gris Preacuerdo
+        drawLine(ptsPre, '#6f7780'); // Gris Propuesta Dirección
         drawLine(ptsMin, '#E30613'); // Rojo Ministerio
     }
 
@@ -706,7 +703,7 @@
         var txt = "CALCULADORA EVOLUCIÓN SALARIAL 2026-2029 - CCOO\n\n";
         txt += "Salario Base 2025: " + formatearMoneda(dSim.baseInit) + "\n\n";
         
-        txt += "--- PREACUERDO 23 DE JULIO ---\n";
+        txt += "--- PROPUESTA DIRECCIÓN (JUNIO) ---\n";
         txt += "Base final consolidada 2029: " + formatearMoneda(dSim.pre.baseFinal) + "\n";
         txt += "Dinero adicional acumulado: " + formatearMoneda(dSim.pre.adicional) + "\n\n";
 
