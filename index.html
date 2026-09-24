@@ -3,23 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora Evolución Salarial 2026–2029 - CCOO</title>
+    <title>Comparativa Salarial 2026–2029 - CCOO Airbus Spain</title>
+    <!-- Carga de respaldo en Google Fonts por si falla la carga local -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
     <style>
-        :root {
-            --ccoo-red: #E30613;
-            --dark-red: #6E000A;
-            --light-red: #FF3B47;
-            --blue: #005587;
-            --green: #1A7A3A;
-            --amber: #C07800;
-            --bg-gray: #f4f4f4;
-            --white: #FFFFFF;
-            --text-main: #333333;
-            --border-radius: 8px;
-            --shadow: 0 4px 12px rgba(0,0,0,0.08);
-            --font-family: Arial, Helvetica, sans-serif;
+        /* 1. DECLARACIÓN DE LA FUENTE LOCAL THEO VAN DOESBURG (THEOVD__.ttf) */
+        @font-face {
+            font-family: 'Theo Van Doesburg';
+            src: url('THEOVD__.ttf') format('truetype'),
+                 url('THEOVD__.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
         }
 
+        @font-face {
+            font-family: 'Adriana';
+            src: url('THEOVD__.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root {
+            --ccoo-red: #E30613;
+            --dark-red: #8B0000;
+            --light-red: #FF2B38;
+            --blue: #005587;
+            --dark-blue: #003355;
+            --green: #1A7A3A;
+            --amber: #D97706;
+            --amber-bg: #FFFBEB;
+            --bg-gray: #F8FAFC;
+            --card-bg: rgba(255, 255, 255, 0.94);
+            --white: #FFFFFF;
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            --border-radius: 12px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.04);
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            /* Tipografía Theo Van Doesburg / Adriana */
+            --font-family: 'Theo Van Doesburg', 'Adriana', 'Montserrat', sans-serif;
+        }
+
+        /* RESET & BASE */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -33,164 +64,468 @@
             line-height: 1.6;
             padding: 0;
             margin: 0;
-            display: block;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding-bottom: 120px;
+            position: relative;
         }
 
+        /* MARCA DE AGUA EN EL FONDO (IMAGEN CCOONUEVO) */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url("ccoonuevo.jpg"), url("ccoonuevo.png");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+            opacity: 0.08;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* HEADER */
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: linear-gradient(135deg, var(--dark-red) 0%, var(--ccoo-red) 50%, var(--light-red) 100%);
-            padding: 15px 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            display: flex;
+            background: linear-gradient(135deg, var(--dark-red) 0%, var(--ccoo-red) 60%, var(--light-red) 100%);
+            padding: 12px 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+            display: grid;
+            grid-template-columns: auto 1fr auto;
             align-items: center;
+            gap: 20px;
+            border-bottom: 3px solid rgba(255,255,255,0.2);
         }
 
         .logo {
             background: var(--white);
-            padding: 6px 10px;
-            border-radius: 4px;
+            padding: 6px 14px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .logo img {
-            height: 50px;
+            height: 42px;
             width: auto;
             display: block;
         }
 
+        .header-title {
+            color: var(--white);
+            font-size: 21px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            letter-spacing: 0.8px;
+            grid-column: 2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            font-family: var(--font-family);
+        }
+
+        .header-spacer { width: 140px; }
+
+        /* CONTAINER PRINCIPAL */
         .container {
-            max-width: 1100px;
+            max-width: 1150px;
             margin: 0 auto;
             padding: 30px 20px;
+            flex: 1;
+            width: 100%;
+        }
+
+        .banner-hero {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 35px;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            backdrop-filter: blur(8px);
+        }
+
+        .banner-hero img {
+            width: 100%;
+            height: auto;
             display: block;
+            object-fit: cover;
+        }
+
+        .title-group {
+            text-align: center;
+            margin-bottom: 35px;
         }
 
         h1 {
-            text-align: center;
             color: var(--dark-red);
-            font-size: 32px;
-            margin-bottom: 5px;
+            font-size: 34px;
+            font-weight: bold;
+            margin-bottom: 8px;
             text-transform: uppercase;
+            letter-spacing: -0.5px;
+            font-family: var(--font-family);
         }
-        
+
         .subtitle {
-            text-align: center;
-            font-size: 20px;
+            font-size: 21px;
             font-weight: bold;
             color: var(--ccoo-red);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            font-family: var(--font-family);
         }
 
         .desc-text {
-            text-align: center;
             font-size: 16px;
-            margin-bottom: 5px;
+            color: var(--text-main);
+            max-width: 800px;
+            margin: 0 auto 8px auto;
         }
 
         .privacy-note {
-            text-align: center;
             font-size: 13px;
-            color: #666;
-            margin-bottom: 40px;
+            color: var(--text-muted);
             font-style: italic;
-        }
-
-        h2 {
-            font-size: 22px;
-            color: var(--blue);
-            margin-bottom: 20px;
-            border-bottom: 2px solid #eaeaea;
-            padding-bottom: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.8);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid #E2E8F0;
         }
 
         .card {
-            background: var(--white);
+            background: var(--card-bg);
+            backdrop-filter: blur(8px);
             border-radius: var(--border-radius);
-            padding: 30px;
+            padding: 32px;
             box-shadow: var(--shadow);
             margin-bottom: 30px;
-            display: block;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--blue);
+            margin-bottom: 22px;
+            border-bottom: 2px solid #E2E8F0;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: var(--font-family);
         }
 
         .notice-box {
-            background-color: var(--white);
+            background: var(--card-bg);
+            backdrop-filter: blur(8px);
             border-left: 6px solid var(--blue);
-            padding: 25px;
+            padding: 28px;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
+            margin-bottom: 35px;
+            border-top: 1px solid #E2E8F0;
+            border-right: 1px solid #E2E8F0;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .notice-box h3 {
+            color: var(--blue);
+            margin-top: 0;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            font-size: 18px;
+            font-weight: bold;
+            font-family: var(--font-family);
+        }
+
+        .notice-box p {
+            margin-bottom: 12px;
+            text-align: justify;
+            color: #334155;
+            font-size: 15px;
+        }
+
+        .notice-box p:last-child { margin-bottom: 0; }
+
+        .form-group { margin-bottom: 24px; }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #475569;
+        }
+
+        select, input[type="text"] {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1.5px solid #CBD5E1;
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: var(--white);
+            color: var(--text-main);
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 4px rgba(0, 85, 135, 0.15);
+        }
+
+        .info-box {
+            background-color: #F0F9FF;
+            border-left: 4px solid var(--blue);
+            padding: 14px 18px;
+            margin-top: 12px;
+            font-size: 14px;
+            border-radius: 0 8px 8px 0;
+            display: none;
+            color: var(--dark-blue);
+        }
+
+        .parsed-salary {
+            display: block;
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--green);
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            margin-top: 35px;
+        }
+
+        button {
+            padding: 16px 28px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            flex: 1;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
+            font-family: var(--font-family);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--ccoo-red) 0%, var(--dark-red) 100%);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            opacity: 0.95;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(227, 6, 19, 0.3);
+        }
+
+        .btn-secondary { background: #E2E8F0; color: #334155; }
+        .btn-secondary:hover { background: #CBD5E1; transform: translateY(-2px); }
+
+        .btn-outline { background: var(--white); border: 2px solid var(--blue); color: var(--blue); }
+        .btn-outline:hover { background: var(--blue); color: var(--white); transform: translateY(-2px); }
+
+        .error-msg {
+            color: var(--ccoo-red);
+            font-weight: bold;
+            margin-top: 20px;
+            display: none;
+            text-align: center;
+            background: #FEF2F2;
+            padding: 14px;
+            border-radius: 8px;
+            border: 1px solid #FCA5A5;
+        }
+
+        #results-panel { display: none; }
+
+        .result-section-title {
+            text-align: center;
+            font-size: 22px;
+            color: var(--dark-red);
+            margin: 45px 0 22px 0;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            font-family: var(--font-family);
+        }
+
+        .cards-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
             margin-bottom: 30px;
         }
 
-        .notice-box h3 { color: var(--blue); margin-top: 0; text-transform: uppercase; }
-        .notice-box p { margin-bottom: 12px; }
-        .notice-box p:last-child { margin-bottom: 0; }
+        .res-card {
+            padding: 28px;
+            border-radius: var(--border-radius);
+            color: var(--white);
+            box-shadow: var(--shadow-lg);
+        }
 
-        .form-group { margin-bottom: 25px; }
-        label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 14px; text-transform: uppercase; }
-        select, input[type="text"] { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; }
-        select:focus, input:focus { outline: none; border-color: var(--blue); }
+        .res-card.amber { background: linear-gradient(135deg, #D97706 0%, #B45309 100%); }
+        .res-card.red { background: linear-gradient(135deg, var(--ccoo-red) 0%, var(--dark-red) 100%); }
 
-        .info-box { background-color: #e6f3fa; border-left: 4px solid var(--blue); padding: 12px 15px; margin-top: 10px; font-size: 14px; display: none; }
-        .parsed-salary { display: block; margin-top: 6px; font-size: 14px; font-weight: bold; color: var(--green); }
+        .res-card h4 {
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.25);
+            padding-bottom: 10px;
+            letter-spacing: 0.5px;
+            font-family: var(--font-family);
+        }
 
-        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
-        .btn-group { display: flex; gap: 15px; margin-top: 35px; }
-        button { padding: 15px 25px; border: none; border-radius: 4px; font-size: 16px; font-weight: bold; cursor: pointer; flex: 1; text-transform: uppercase; }
-        .btn-primary { background: var(--ccoo-red); color: var(--white); }
-        .btn-secondary { background: #e0e0e0; color: var(--text-main); }
-        .btn-outline { background: transparent; border: 2px solid var(--blue); color: var(--blue); }
+        .res-card .main-val {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
 
-        .error-msg { color: var(--ccoo-red); font-weight: bold; margin-top: 15px; display: none; text-align: center; background: #fff0f1; padding: 10px; border-radius: 4px; border: 1px solid var(--ccoo-red); }
+        .res-card .sub-val {
+            font-size: 15px;
+            background: rgba(0,0,0,0.18);
+            padding: 8px 14px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            font-weight: bold;
+            display: inline-block;
+        }
 
-        #results-panel { display: none; }
-        .result-section-title { text-align: center; font-size: 24px; color: var(--dark-red); margin: 40px 0 20px 0; text-transform: uppercase; font-weight: bold; }
-        .cards-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px; }
-        .res-card { padding: 25px; border-radius: var(--border-radius); color: var(--white); box-shadow: var(--shadow); }
-        .res-card.gray { background: #6f7780; }
-        .res-card.red { background: var(--ccoo-red); }
-        .res-card h4 { font-size: 16px; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 10px; }
-        .res-card .main-val { font-size: 34px; font-weight: bold; margin-bottom: 10px; }
-        .res-card .sub-val { font-size: 16px; background: rgba(0,0,0,0.15); padding: 8px 12px; border-radius: 4px; margin-bottom: 10px; font-weight: bold; }
-        .res-card .info-text { font-size: 12px; opacity: 0.9; }
+        .res-card .info-text { font-size: 13px; opacity: 0.92; line-height: 1.4; }
 
-        .diff-block { background: #e8f5e9; border-left: 8px solid var(--green); padding: 30px; border-radius: var(--border-radius); color: #115024; text-align: center; margin: 40px 0; }
-        .diff-block h3 { font-size: 22px; margin-bottom: 5px; }
-        .diff-block h4 { font-size: 16px; font-weight: normal; margin-bottom: 20px; color: #1b5e20; }
-        .diff-block .diff-val { font-size: 48px; font-weight: bold; margin-bottom: 10px; }
+        .diff-block {
+            background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+            border-left: 8px solid var(--green);
+            padding: 32px;
+            border-radius: var(--border-radius);
+            color: #065F46;
+            text-align: center;
+            margin: 40px 0;
+            box-shadow: var(--shadow);
+            border-top: 1px solid #A7F3D0;
+            border-right: 1px solid #A7F3D0;
+            border-bottom: 1px solid #A7F3D0;
+        }
 
-        .table-responsive { overflow-x: auto; margin-top: 15px; }
+        .diff-block h3 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            font-family: var(--font-family);
+        }
+
+        .diff-block h4 { font-size: 15px; font-weight: 600; margin-bottom: 20px; color: #047857; }
+        .diff-block .diff-val { font-size: 52px; font-weight: bold; margin-bottom: 10px; letter-spacing: -1px; }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 15px;
+            border-radius: 8px;
+            border: 1px solid #E2E8F0;
+        }
+
         table { width: 100%; border-collapse: collapse; font-size: 14px; background: var(--white); }
-        th, td { border: 1px solid #ddd; padding: 12px; text-align: right; }
-        th { background-color: var(--blue); color: white; text-align: center; font-weight: bold; }
-        td:first-child { text-align: center; font-weight: bold; background-color: #f9f9f9; }
-        .col-gray { background-color: #f0f2f5; }
-        .col-red { background-color: #fff0f1; }
-        .th-gray { background-color: #6f7780 !important; }
+        th, td { padding: 14px 16px; text-align: right; border-bottom: 1px solid #E2E8F0; }
+        th {
+            background-color: var(--blue);
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            font-family: var(--font-family);
+        }
+
+        td:first-child { text-align: center; font-weight: bold; background-color: #F8FAFC; color: #334155; }
+        .col-amber { background-color: #FFFBEB; }
+        .col-red { background-color: #FEF2F2; }
+        .th-amber { background-color: var(--amber) !important; }
         .th-red { background-color: var(--ccoo-red) !important; }
-        .small-txt { display: block; font-size: 11px; color: #666; margin-top: 4px; text-align: right; }
 
-        .chart-container { width: 100%; height: 400px; position: relative; margin: 20px 0; border: 1px solid #ddd; padding: 15px; }
+        .small-txt { display: block; font-size: 11px; color: #64748B; margin-top: 4px; text-align: right; font-weight: normal; }
+
+        .chart-container {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            margin: 20px 0;
+            border-radius: 8px;
+            background: #FAFAFA;
+            padding: 15px;
+            border: 1px solid #E2E8F0;
+        }
+
         canvas { width: 100%; height: 100%; display: block; }
-        .chart-legend { text-align: center; font-size: 14px; margin-bottom: 15px; font-weight: bold; }
-        .legend-item { display: inline-block; margin: 0 15px; }
-        .dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; margin-right: 6px; vertical-align: middle;}
 
-        footer { text-align: center; padding: 30px; font-size: 13px; color: #666; margin-top: 40px; border-top: 1px solid #ddd; background: var(--white); }
+        .chart-legend { text-align: center; font-size: 14px; margin-bottom: 18px; font-weight: bold; }
+        .legend-item { display: inline-block; margin: 0 15px; }
+        .dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            background: linear-gradient(135deg, var(--dark-red) 0%, var(--ccoo-red) 60%, var(--light-red) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 12px 20px;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
+            border-top: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .footer-content { max-width: 1100px; margin: 0 auto; }
+        .footer-note { font-size: 12px; line-height: 1.4; margin-bottom: 4px; }
+        .footer-note strong { color: #FCD34D; text-transform: uppercase; }
+        .footer-copyright { font-size: 11px; opacity: 0.85; }
 
         @media (max-width: 768px) {
+            header { grid-template-columns: 1fr; text-align: center; gap: 10px; }
+            .logo { margin: 0 auto; }
+            .header-spacer { display: none; }
+            .header-title { font-size: 16px; grid-column: 1; }
             .cards-grid-2 { grid-template-columns: 1fr; }
             .grid-4 { grid-template-columns: 1fr 1fr; }
-            .btn-group { flex-direction: column; }
-            .diff-block .diff-val { font-size: 36px; }
+            body { padding-bottom: 160px; }
+            .diff-block .diff-val { font-size: 38px; }
+            .res-card .main-val { font-size: 30px; }
+            h1 { font-size: 26px; }
+            .subtitle { font-size: 18px; }
         }
 
         @media print {
-            body { background: var(--white); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            header, .btn-group, .export-btns { display: none !important; }
+            body { background: var(--white); -webkit-print-color-adjust: exact; print-color-adjust: exact; padding-bottom: 0; }
+            body::before { display: none; }
+            header, .btn-group, .export-btns, footer { display: none !important; }
             .container { padding: 0; max-width: 100%; }
             .card, .notice-box, .diff-block, .res-card { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
             table { page-break-inside: avoid; }
@@ -201,22 +536,32 @@
 
 <header>
     <div class="logo">
-        <img src="ccoo industria airbus.png" alt="CCOO Industria Airbus">
+        <img src="ccoo industria airbus.png" alt="CCOO Industria Airbus" onerror="this.style.display='none'">
     </div>
+    <div class="header-title">
+        Calculadora de evolución salarial 2026-2029
+    </div>
+    <div class="header-spacer"></div>
 </header>
 
 <div class="container">
-    <h1>CALCULADORA EVOLUCIÓN SALARIAL</h1>
-    <div class="subtitle">Simulación comparativa 2026–2029</div>
-    <p class="desc-text">Comparación entre la última propuesta de la dirección (junio) y la propuesta del Ministerio basada en IPC real.</p>
-    <p class="privacy-note">Los datos se calculan únicamente en tu navegador: no se almacenan ni se envían.</p>
+    <div class="banner-hero">
+        <img src="ccoonuevo.jpg" alt="CCOO Airbus Interempresas Banner" onerror="this.src='ccoonuevo.png'">
+    </div>
+
+    <div class="title-group">
+        <h1>COMPARATIVA SALARIAL 2026–2029</h1>
+        <div class="subtitle">Hipótesis 3% desde Enero vs. Propuesta del Ministerio</div>
+        <p class="desc-text">Herramienta de simulación sindical para evaluar el impacto del ciclo y la mitigación del efecto abril.</p>
+        <span class="privacy-note">🔒 Los datos se calculan únicamente en tu navegador: no se almacenan ni se envían.</span>
+    </div>
 
     <div class="notice-box">
-        <h3>Marco de comparación</h3>
-        <p>Esta simulación cubre exclusivamente 2026–2029. No es riguroso proyectar sus resultados indefinidamente, ya que a partir de 2030 dependerán de futuras negociaciones.</p>
-        <p><strong>ÚLTIMA PROPUESTA DE LA DIRECCIÓN (JUNIO):</strong> Contemplaba un incremento del 3 % en 2026 aplicado desde enero (aplicado unilateralmente) y un 3 % en 2027 aplicado desde abril. Durante 2028 y 2029 la base permanece constante (0 % de incremento adicional en este escenario).</p>
-        <p><strong>PROPUESTA DEL MINISTERIO:</strong> Aplica IPC + 2 puntos porcentuales en 2026 y 2027 (desde enero), IPC + 2 puntos en 2028 (desde abril), e IPC + 1,95 puntos en 2029 (desde abril).</p>
-        <p><strong>PAGO ÚNICO DE 2.000 €:</strong> Existe un pago único de 2.000 € brutos no consolidable que está incluido en ambos escenarios. Se suma al acumulado, pero no modifica las bases.</p>
+        <h3>Marco de comparación y contexto metodológico</h3>
+        <p><strong>Ámbito temporal estricto:</strong> Esta simulación cubre de forma exclusiva el ciclo <strong>2026–2029</strong>. Carece de rigor proyectar este tipo de escenarios más allá de 2029, ya que no existen marcos de negociación colectiva ni convenios firmados para años posteriores.</p>
+        <p><strong>Hipótesis de 3% desde enero:</strong> Simula un escenario ideal de incremento salarial fijo del 3% aplicado cada año de forma ininterrumpida desde el mes de enero. Cabe destacar que una aplicación continuada en enero jamás estuvo disponible como opción real sobre la mesa (la tónica habitual de la dirección sitúa las revisiones en abril).</p>
+        <p><strong>Propuesta del Ministerio:</strong> Combina la garantía de IPC real + diferencial aplicando el efecto enero en los dos primeros años (2026 y 2027) y adaptándose al marco de homogeneización temporal del grupo en el mes de abril a partir de 2028.</p>
+        <p><strong>Mitigación del "efecto abril":</strong> Con el fin de equilibrar el decalaje temporal que supone trasladar la revisión al mes de abril en 2028 y 2029 (homogeneizándonos con el resto de países del grupo), la propuesta incorpora un <strong>pago único no consolidable de 2.000 € brutos</strong> en octubre de 2026, neutralizando así cualquier diferencia acumulada para la plantilla.</p>
     </div>
 
     <div class="card">
@@ -240,22 +585,22 @@
             <span id="salary_parsed" class="parsed-salary">Salario interpretado por la calculadora: 50.000,00 €</span>
         </div>
 
-        <label style="margin-top: 15px;">PREVISIÓN IPC REAL / SUPUESTO (%):</label>
-        <div class="grid-4">
+        <label style="margin-top: 20px;">PREVISIÓN IPC REAL / SUPUESTO PARA LA PROPUESTA DEL MINISTERIO (%):</label>
+        <div class="grid-4" style="margin-top: 8px;">
             <div class="form-group">
-                <label style="font-size: 12px;">IPC 2026</label>
+                <label style="font-size: 11px;">IPC 2026</label>
                 <input type="text" id="ipc_2026" value="5,6">
             </div>
             <div class="form-group">
-                <label style="font-size: 12px;">IPC 2027</label>
+                <label style="font-size: 11px;">IPC 2027</label>
                 <input type="text" id="ipc_2027" value="3">
             </div>
             <div class="form-group">
-                <label style="font-size: 12px;">IPC 2028</label>
+                <label style="font-size: 11px;">IPC 2028</label>
                 <input type="text" id="ipc_2028" value="3">
             </div>
             <div class="form-group">
-                <label style="font-size: 12px;">IPC 2029</label>
+                <label style="font-size: 11px;">IPC 2029</label>
                 <input type="text" id="ipc_2029" value="3">
             </div>
         </div>
@@ -263,7 +608,7 @@
         <div id="error-msg" class="error-msg"></div>
 
         <div class="btn-group">
-            <button class="btn-primary" onclick="calcular()">CALCULAR EVOLUCIÓN</button>
+            <button class="btn-primary" onclick="calcular()">CALCULAR COMPARATIVA</button>
             <button class="btn-secondary" onclick="restablecer()">RESTABLECER EJEMPLO</button>
         </div>
     </div>
@@ -271,89 +616,83 @@
     <!-- Resultados -->
     <div id="results-panel">
         
-        <div class="result-section-title">1. Base Salarial Final (Consolidada)</div>
+        <div class="result-section-title">1. Base Salarial Final (Consolidada al cierre de 2029)</div>
         <div class="cards-grid-2">
-            <div class="res-card gray">
-                <h4>SALARIO BASE 2029: PROPUESTA DIRECCIÓN (JUNIO)</h4>
-                <div class="main-val" id="res-base-pre">0,00 €</div>
-                <div class="sub-val" id="res-cons-pre">Subida frente a 2025: +0,00 €</div>
-                <div class="info-text">Base estable durante 2028 y 2029.</div>
+            <div class="res-card amber">
+                <h4>SALARIO BASE 2029: HIPÓTESIS 3% DESDE ENERO</h4>
+                <div class="main-val" id="res-base-hip">0,00 €</div>
+                <div class="sub-val" id="res-cons-hip">Subida frente a 2025: +0,00 €</div>
+                <div class="info-text">Aplicación fija del 3% cada año desde enero (escenario ideal limitado a 2026-2029).</div>
             </div>
             <div class="res-card red">
                 <h4>SALARIO BASE 2029: PROPUESTA MINISTERIO</h4>
                 <div class="main-val" id="res-base-min">0,00 €</div>
                 <div class="sub-val" id="res-cons-min">Subida frente a 2025: +0,00 €</div>
-                <div class="info-text">Resultante de aplicar IPC + diferencial cada año.</div>
+                <div class="info-text">Resultante de aplicar IPC + diferencial (con efecto abril en 2028-2029).</div>
             </div>
         </div>
 
-        <div class="result-section-title">2. Dinero Adicional Acumulado (2026–2029)</div>
+        <div class="result-section-title">2. Total de dinero extra ganado (2026–2029)</div>
         <div class="cards-grid-2">
-            <div class="res-card gray">
-                <h4>DINERO ADICIONAL ACUMULADO: PROPUESTA DIRECCIÓN</h4>
-                <div class="main-val" id="res-add-pre">0,00 €</div>
-                <div class="info-text">Cantidad cobrada de más respecto a mantener el salario de 2025 congelado. Incluye el pago de 2.000 €.</div>
-                <div class="info-text" style="margin-top: 8px; opacity: 0.7;" id="res-tot-pre">Total percibido 2026-2029: 0,00 €</div>
+            <div class="res-card amber">
+                <h4>DINERO ADICIONAL: HIPÓTESIS 3% DESDE ENERO</h4>
+                <div class="main-val" id="res-add-hip">0,00 €</div>
+                <div class="info-text">Cantidad cobrada de más respecto a mantener congelado el salario de 2025.</div>
+                <div class="info-text" style="margin-top: 10px; opacity: 0.8; font-weight: bold;" id="res-tot-hip">Total percibido 2026-2029: 0,00 €</div>
             </div>
             <div class="res-card red">
-                <h4>DINERO ADICIONAL ACUMULADO: MINISTERIO</h4>
+                <h4>DINERO ADICIONAL: PROPUESTA MINISTERIO</h4>
                 <div class="main-val" id="res-add-min">0,00 €</div>
-                <div class="info-text">Cantidad cobrada de más respecto a mantener el salario de 2025 congelado. Incluye el pago de 2.000 €.</div>
-                <div class="info-text" style="margin-top: 8px; opacity: 0.7;" id="res-tot-min">Total percibido 2026-2029: 0,00 €</div>
+                <div class="info-text">Cantidad cobrada de más respecto a mantener congelado el salario de 2025. Incluye pago único de 2.000 € para compensar el efecto abril.</div>
+                <div class="info-text" style="margin-top: 10px; opacity: 0.8; font-weight: bold;" id="res-tot-min">Total percibido 2026-2029 (incl. 2.000€): 0,00 €</div>
             </div>
         </div>
 
         <div class="diff-block">
             <h3>DIFERENCIA ACUMULADA ENTRE AMBAS OPCIONES 2026–2029</h3>
-            <h4>Propuesta del Ministerio frente a la última propuesta de la dirección</h4>
+            <h4>Propuesta del Ministerio (con 2.000 € de pago único) frente a Hipótesis 3% desde Enero</h4>
             <div class="diff-val" id="res-diff-val">0,00 €</div>
-            <div class="diff-note">Diferencia de dinero adicional acumulado entre ambas opciones durante 2026–2029. Los 2.000 € están incluidos en ambos lados, por lo que no generan esta diferencia.</div>
+            <div class="diff-note">Diferencia de dinero adicional acumulado entre ambas opciones durante el ciclo completo.</div>
         </div>
 
         <div class="card">
             <h2>TABLA COMPARATIVA RESUMEN</h2>
             <div class="table-responsive">
-                <table id="summary-table">
-                    <!-- Rellenado por JS -->
-                </table>
+                <table id="summary-table"></table>
             </div>
         </div>
 
         <div class="card">
             <h2>EVOLUCIÓN DE LA BASE SALARIAL: DOS ESCENARIOS</h2>
             <div class="chart-legend">
-                <span class="legend-item"><span class="dot" style="background: #6f7780;"></span>Dirección (Junio): 3 % enero '26 / 3 % abril '27</span>
-                <span class="legend-item"><span class="dot" style="background: #E30613;"></span>Propuesta: IPC real + diferencial</span>
+                <span class="legend-item"><span class="dot" style="background: var(--amber);"></span>Hipótesis 3% desde Enero</span>
+                <span class="legend-item"><span class="dot" style="background: var(--ccoo-red);"></span>Propuesta Ministerio (Enero '26-'27 / Abril '28-'29)</span>
             </div>
             <div class="chart-container">
                 <canvas id="chartCanvas"></canvas>
             </div>
-            <p style="text-align: center; font-size: 13px; color: #666; margin-top: 15px;">
-                Gris: última propuesta de la dirección en junio. Rojo: propuesta del Ministerio.<br>La gráfica representa la base salarial consolidada.
+            <p style="text-align: center; font-size: 13px; color: var(--text-muted); margin-top: 15px;">
+                Ámbar: Hipótesis 3% desde enero. Rojo: Propuesta del Ministerio (con revisión en abril para 2028 y 2029).<br>La gráfica representa la base salarial consolidada.
             </p>
         </div>
 
         <div class="card">
             <h2>DETALLE ANUAL DEL CÁLCULO</h2>
             <div class="table-responsive">
-                <table id="annual-table">
-                    <!-- Rellenado por JS -->
-                </table>
+                <table id="annual-table"></table>
             </div>
+            <p style="font-size: 12px; color: var(--text-muted); margin-top: 15px;">
+                * El pago único de 2.000 € brutos (octubre 2026) se suma al total percibido de la Propuesta del Ministerio para mitigar con holgura el decalaje temporal del efecto abril en los últimos años del ciclo.
+            </p>
         </div>
 
-        <div class="cards-grid-2">
-            <div class="card">
-                <h2>Cómo interpretar el resultado</h2>
-                <p>Una revisión que entra en abril modifica la base anual, pero ese año solo se cobra con la nueva base durante nueve meses. El pago de 2.000 € está en ambos escenarios y no consolida.</p>
-            </div>
-            <div class="card">
-                <h2>Metodología y límites</h2>
-                <p style="font-size:14px; line-height:1.5;">Simulación orientativa. Propuesta Dirección (Junio): +3% enero 2026 (aplicado unilateralmente), +3% abril 2027. Ministerio: IPC+2% (2026-2028), IPC+1.95% (2029). 2028 y 2029 aplican en abril. No incluye IRPF, cotizaciones ni complementos personales.</p>
-            </div>
+        <div class="card">
+            <h2>Metodología, límites y letra pequeña</h2>
+            <p style="font-size:14px; line-height:1.6; color: #334155;">Simulación orientativa para Airbus Spain restringida estrictamente al ciclo 2026–2029. La hipótesis contrasta una subida lineal fija del 3% anual desde enero frente a la propuesta del Ministerio (IPC + 2% en 2026-2028 con efecto enero en 26-27 y abril en 28; e IPC + 1,95% en 2029 con efecto abril), incorporando los 2.000 € de pago único no consolidable.</p>
+            <p style="font-size:14px; line-height:1.6; color: #334155; margin-top: 12px;"><strong>Sobre las pagas extras:</strong> El cálculo asume el devengo estrictamente legal y proporcional de las pagas extras en los años con cambio de tablas (2028 y 2029). Si la empresa decidiera abonar la extra de verano íntegra con las nuevas tablas por simplicidad administrativa, el dinero real percibido a favor del trabajador sería ligeramente superior al mostrado en esta simulación.</p>
         </div>
 
-        <div class="btn-group export-btns" style="margin-bottom: 20px;">
+        <div class="btn-group export-btns" style="margin-bottom: 25px;">
             <button class="btn-outline" onclick="window.print()">IMPRIMIR / GUARDAR PDF</button>
             <button class="btn-outline" onclick="exportTXT()">DESCARGAR TEXTO COMPLETO</button>
         </div>
@@ -361,14 +700,19 @@
 </div>
 
 <footer>
-    © Sección Sindical CCOO · Airbus Spain — Simulación orientativa. Consulta siempre los textos oficiales aplicables.
+    <div class="footer-content">
+        <div class="footer-note">
+            <strong>NOTA ACLARATORIA:</strong> Resultados estrictamente orientativos y sin valor contractual. No incluye IRPF, Seguridad Social ni complementos.
+        </div>
+        <div class="footer-copyright">
+            © Sección Sindical CCOO · Airbus Spain. Consulta siempre los textos oficiales aplicables.
+        </div>
+    </div>
 </footer>
 
 <script>
-    // Variables globales
     var dSim = {};
 
-    // Límites de las bandas
     var limitesBandas = {
         'VIII': { min: 29321, max: 50211 },
         'VI': { min: 42468, max: 67130 },
@@ -376,7 +720,6 @@
         'V.1': { min: 63787, max: 110193 }
     };
 
-    // Formateadores compatibles
     function formatearMoneda(numero) {
         try {
             return new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(numero);
@@ -393,7 +736,6 @@
         }
     }
 
-    // Parseo robusto de números
     function parseSpanishNumber(valStr) {
         if (!valStr) return 0;
         var s = valStr.toString().trim();
@@ -421,7 +763,7 @@
         var parsedEl = document.getElementById('salary_parsed');
         var num = parseSpanishNumber(inputEl.value);
         if (num > 0) {
-            parsedEl.innerText = "Salario interpretado: " + formatearMoneda(num);
+            parsedEl.innerText = "Salario interpretado por la calculadora: " + formatearMoneda(num);
             parsedEl.style.color = "var(--green)";
         } else {
             parsedEl.innerText = "Salario inválido";
@@ -432,10 +774,9 @@
     function updateBandaInfo() {
         var val = document.getElementById('banda').value;
         var info = document.getElementById('banda-info');
-        var text = "";
         
         if (val !== 'manual') {
-            text = "Banda " + val + ": " + formatearMoneda(limitesBandas[val].min) + " – " + formatearMoneda(limitesBandas[val].max);
+            var text = "Banda " + val + ": " + formatearMoneda(limitesBandas[val].min) + " – " + formatearMoneda(limitesBandas[val].max);
             info.innerHTML = "<strong>" + text + "</strong><br>Introduce tu salario anual exacto abajo.";
             info.style.display = 'block';
         } else {
@@ -457,39 +798,34 @@
         window.scrollTo(0, 0);
     }
 
-    // Calculos matemáticos corregidos (3% en enero 2026, 3% en abril 2027)
     function calcularMotor(baseInit, ipc26, ipc27, ipc28, ipc29) {
         var pagoUnico = 2000;
         var refCongelada = baseInit * 4;
 
-        // Propuesta Dirección (Junio): 3% en enero 2026, 3% en abril 2027
-        var preBase26 = baseInit * 1.03;
-        var prePerc26 = preBase26; // Aplicado en enero
-        
-        var preBase27 = preBase26 * 1.03;
-        var prePerc27 = (preBase26 * (3/12)) + (preBase27 * (9/12)); // Aplicado en abril
-        
-        var preBase28 = preBase27;
-        var prePerc28 = preBase27;
-        
-        var preBase29 = preBase27;
-        var prePerc29 = preBase27;
+        var hipBases = [];
+        var hipPercs = [];
+        var currHipBase = baseInit;
+        var totHipPerc = 0;
 
-        var preTotPerc = prePerc26 + prePerc27 + prePerc28 + prePerc29 + pagoUnico;
-        var preAdicional = preTotPerc - refCongelada;
-        var preSubidaEuros = preBase29 - baseInit;
-        var preSubidaPct = ((preBase29 / baseInit) - 1) * 100;
+        for (var i = 0; i < 4; i++) {
+            currHipBase = currHipBase * 1.03;
+            hipBases.push(currHipBase);
+            hipPercs.push(currHipBase);
+            totHipPerc += currHipBase;
+        }
+        var hipAdicional = totHipPerc - refCongelada;
+        var hipSubidaEuros = currHipBase - baseInit;
+        var hipSubidaPct = ((currHipBase / baseInit) - 1) * 100;
 
-        // Ministerio
-        var minPct26 = ipc26 + 2;
+        var minPct26 = ipc26 + 2.0;
         var minBase26 = baseInit * (1 + minPct26/100);
         var minPerc26 = minBase26;
 
-        var minPct27 = ipc27 + 2;
+        var minPct27 = ipc27 + 2.0;
         var minBase27 = minBase26 * (1 + minPct27/100);
         var minPerc27 = minBase27;
 
-        var minPct28 = ipc28 + 2;
+        var minPct28 = ipc28 + 2.0;
         var minBase28 = minBase27 * (1 + minPct28/100);
         var minPerc28 = (minBase27 * (3/12)) + (minBase28 * (9/12));
 
@@ -497,25 +833,26 @@
         var minBase29 = minBase28 * (1 + minPct29/100);
         var minPerc29 = (minBase28 * (3/12)) + (minBase29 * (9/12));
 
+        var minBases = [minBase26, minBase27, minBase28, minBase29];
+        var minPercs = [minPerc26, minPerc27, minPerc28, minPerc29];
+        var minPcts = [minPct26, minPct27, minPct28, minPct29];
+
         var minTotPerc = minPerc26 + minPerc27 + minPerc28 + minPerc29 + pagoUnico;
         var minAdicional = minTotPerc - refCongelada;
         var minSubidaEuros = minBase29 - baseInit;
         var minSubidaPct = ((minBase29 / baseInit) - 1) * 100;
 
-        var diferencia = minTotPerc - preTotPerc;
+        var diferencia = minTotPerc - totHipPerc;
 
         return {
             baseInit: baseInit, pagoUnico: pagoUnico,
             ipcs: [ipc26, ipc27, ipc28, ipc29],
-            pre: {
-                bases: [preBase26, preBase27, preBase28, preBase29],
-                percs: [prePerc26, prePerc27, prePerc28, prePerc29],
-                totPerc: preTotPerc, adicional: preAdicional, subidaEuros: preSubidaEuros, subidaPct: preSubidaPct, baseFinal: preBase29
+            hip: {
+                bases: hipBases, percs: hipPercs,
+                totPerc: totHipPerc, adicional: hipAdicional, subidaEuros: hipSubidaEuros, subidaPct: hipSubidaPct, baseFinal: currHipBase
             },
             min: {
-                pcts: [minPct26, minPct27, minPct28, minPct29],
-                bases: [minBase26, minBase27, minBase28, minBase29],
-                percs: [minPerc26, minPerc27, minPerc28, minPerc29],
+                pcts: minPcts, bases: minBases, percs: minPercs,
                 totPerc: minTotPerc, adicional: minAdicional, subidaEuros: minSubidaEuros, subidaPct: minSubidaPct, baseFinal: minBase29
             },
             diferencia: diferencia
@@ -555,50 +892,45 @@
     }
 
     function renderResultados() {
-        document.getElementById('res-base-pre').innerText = formatearMoneda(dSim.pre.baseFinal);
-        document.getElementById('res-cons-pre').innerText = "Subida: +" + formatearMoneda(dSim.pre.subidaEuros) + " (+" + formatearPorcentaje(dSim.pre.subidaPct) + "%)";
+        document.getElementById('res-base-hip').innerText = formatearMoneda(dSim.hip.baseFinal);
+        document.getElementById('res-cons-hip').innerText = "Subida: +" + formatearMoneda(dSim.hip.subidaEuros) + " (+" + formatearPorcentaje(dSim.hip.subidaPct) + "%)";
         
         document.getElementById('res-base-min').innerText = formatearMoneda(dSim.min.baseFinal);
         document.getElementById('res-cons-min').innerText = "Subida: +" + formatearMoneda(dSim.min.subidaEuros) + " (+" + formatearPorcentaje(dSim.min.subidaPct) + "%)";
 
-        document.getElementById('res-add-pre').innerText = formatearMoneda(dSim.pre.adicional);
-        document.getElementById('res-tot-pre').innerText = "Total percibido 2026-2029: " + formatearMoneda(dSim.pre.totPerc);
+        document.getElementById('res-add-hip').innerText = formatearMoneda(dSim.hip.adicional);
+        document.getElementById('res-tot-hip').innerText = "Total percibido 2026-2029: " + formatearMoneda(dSim.hip.totPerc);
 
         document.getElementById('res-add-min').innerText = formatearMoneda(dSim.min.adicional);
-        document.getElementById('res-tot-min').innerText = "Total percibido 2026-2029: " + formatearMoneda(dSim.min.totPerc);
+        document.getElementById('res-tot-min').innerText = "Total percibido 2026-2029 (incl. 2.000€): " + formatearMoneda(dSim.min.totPerc);
 
         var elDiff = document.getElementById('res-diff-val');
         elDiff.innerText = (dSim.diferencia >= 0 ? "+" : "") + formatearMoneda(dSim.diferencia);
-        elDiff.style.color = dSim.diferencia >= 0 ? "#115024" : "var(--ccoo-red)";
+        elDiff.style.color = dSim.diferencia >= 0 ? "#065F46" : "var(--ccoo-red)";
 
-        var stHTML = "<thead><tr><th>CONCEPTO</th><th class='th-gray'>PROPUESTA DIRECCIÓN (JUNIO)</th><th class='th-red'>MINISTERIO</th></tr></thead><tbody>";
-        stHTML += "<tr><td>Base 2025</td><td class='col-gray'>" + formatearMoneda(dSim.baseInit) + "</td><td class='col-red'>" + formatearMoneda(dSim.baseInit) + "</td></tr>";
-        stHTML += "<tr><td>Base tras 2029</td><td class='col-gray'>" + formatearMoneda(dSim.pre.baseFinal) + "</td><td class='col-red'>" + formatearMoneda(dSim.min.baseFinal) + "</td></tr>";
-        stHTML += "<tr><td>Subida acumulada</td><td class='col-gray'>+" + formatearMoneda(dSim.pre.subidaEuros) + " (+" + formatearPorcentaje(dSim.pre.subidaPct) + "%)</td><td class='col-red'>+" + formatearMoneda(dSim.min.subidaEuros) + " (+" + formatearPorcentaje(dSim.min.subidaPct) + "%)</td></tr>";
-        stHTML += "<tr><td>Dinero adicional cobrado</td><td class='col-gray'>" + formatearMoneda(dSim.pre.adicional) + "</td><td class='col-red'>" + formatearMoneda(dSim.min.adicional) + "</td></tr>";
-        stHTML += "<tr><td>Pago único 2.000€</td><td class='col-gray'>Incluido</td><td class='col-red'>Incluido</td></tr>";
+        var stHTML = "<thead><tr><th>CONCEPTO</th><th class='th-amber'>HIPÓTESIS 3% DESDE ENERO</th><th class='th-red'>PROPUESTA MINISTERIO</th></tr></thead><tbody>";
+        stHTML += "<tr><td>Base 2025</td><td class='col-amber'>" + formatearMoneda(dSim.baseInit) + "</td><td class='col-red'>" + formatearMoneda(dSim.baseInit) + "</td></tr>";
+        stHTML += "<tr><td>Base tras 2029</td><td class='col-amber'>" + formatearMoneda(dSim.hip.baseFinal) + "</td><td class='col-red'>" + formatearMoneda(dSim.min.baseFinal) + "</td></tr>";
+        stHTML += "<tr><td>Subida acumulada</td><td class='col-amber'>+" + formatearMoneda(dSim.hip.subidaEuros) + " (+" + formatearPorcentaje(dSim.hip.subidaPct) + "%)</td><td class='col-red'>+" + formatearMoneda(dSim.min.subidaEuros) + " (+" + formatearPorcentaje(dSim.min.subidaPct) + "%)</td></tr>";
+        stHTML += "<tr><td>Dinero adicional cobrado</td><td class='col-amber'>" + formatearMoneda(dSim.hip.adicional) + "</td><td class='col-red'>" + formatearMoneda(dSim.min.adicional) + "</td></tr>";
+        stHTML += "<tr><td>Pago único 2.000€ (Mitigación)</td><td class='col-amber'>No aplica</td><td class='col-red'>Incluido (Oct. 2026)</td></tr>";
         stHTML += "</tbody>";
         document.getElementById('summary-table').innerHTML = stHTML;
 
-        var anHTML = "<thead><tr><th>Año</th><th>IPC</th><th class='th-gray'>Propuesta Dirección</th><th class='th-gray'>Base Dirección</th><th class='th-gray'>Percibido Dirección</th><th class='th-red'>Subida Ministerio</th><th class='th-red'>Base Ministerio</th><th class='th-red'>Percibido Ministerio</th></tr></thead><tbody>";
+        var anHTML = "<thead><tr><th>Año</th><th>IPC</th><th class='th-amber'>Hipótesis 3% (Enero)</th><th class='th-amber'>Base Hipótesis</th><th class='th-amber'>Percibido Hipótesis</th><th class='th-red'>Subida Ministerio</th><th class='th-red'>Base Ministerio</th><th class='th-red'>Percibido Ministerio</th></tr></thead><tbody>";
         
-        var yData = [
-            {y: 2026, rPre: "3% (Enero)", rMin: "IPC+2% (Enero)", pctM: dSim.min.pcts[0]},
-            {y: 2027, rPre: "3% (Abril)", rMin: "IPC+2% (Enero)", pctM: dSim.min.pcts[1]},
-            {y: 2028, rPre: "0%", rMin: "IPC+2% (Abril)", pctM: dSim.min.pcts[2]},
-            {y: 2029, rPre: "0%", rMin: "IPC+1.95% (Abril)", pctM: dSim.min.pcts[3]}
-        ];
-
+        var anos = [2026, 2027, 2028, 2029];
         for(var i=0; i<4; i++) {
+            var descMin = (i < 2) ? "IPC+" + (i===0?"2%":"2%") + " (Enero)" : "IPC+" + (i===2?"2%":"1,95%") + " (Abril)";
             anHTML += "<tr>";
-            anHTML += "<td>" + yData[i].y + "</td>";
+            anHTML += "<td>" + anos[i] + "</td>";
             anHTML += "<td>" + formatearPorcentaje(dSim.ipcs[i]) + "%</td>";
-            anHTML += "<td class='col-gray'>" + yData[i].rPre + "</td>";
-            anHTML += "<td class='col-gray'>" + formatearMoneda(dSim.pre.bases[i]) + "</td>";
-            anHTML += "<td class='col-gray'>" + formatearMoneda(dSim.pre.percs[i]) + "</td>";
-            anHTML += "<td class='col-red'>" + formatearPorcentaje(yData[i].pctM) + "%<span class='small-txt'>" + yData[i].rMin + "</span></td>";
+            anHTML += "<td class='col-amber'>3,00% (Enero)</td>";
+            anHTML += "<td class='col-amber'>" + formatearMoneda(dSim.hip.bases[i]) + "</td>";
+            anHTML += "<td class='col-amber'>" + formatearMoneda(dSim.hip.percs[i]) + "</td>";
+            anHTML += "<td class='col-red'>" + formatearPorcentaje(dSim.min.pcts[i]) + "%<span class='small-txt'>" + descMin + "</span></td>";
             anHTML += "<td class='col-red'>" + formatearMoneda(dSim.min.bases[i]) + "</td>";
-            anHTML += "<td class='col-red'>" + formatearMoneda(dSim.min.percs[i]) + "</td>";
+            anHTML += "<td class='col-red'>" + formatearMoneda(dSim.min.percs[i]) + (i===0 ? " <span class='small-txt'>(+2.000€ pago único)</span>" : "") + "</td>";
             anHTML += "</tr>";
         }
         anHTML += "</tbody>";
@@ -626,22 +958,22 @@
         var H = canvas.height;
         ctx.clearRect(0, 0, W, H);
         
-        var padL = 70, padB = 40, padT = 30, padR = 20;
+        var padL = 75, padB = 40, padT = 30, padR = 25;
         var chartW = W - padL - padR;
         var chartH = H - padB - padT;
 
-        var ptsPre = [dSim.baseInit].concat(dSim.pre.bases);
+        var ptsHip = [dSim.baseInit].concat(dSim.hip.bases);
         var ptsMin = [dSim.baseInit].concat(dSim.min.bases);
 
-        var maxVal = Math.max.apply(null, ptsPre.concat(ptsMin));
-        var minVal = Math.min.apply(null, ptsPre.concat(ptsMin)) * 0.98;
+        var maxVal = Math.max.apply(null, ptsHip.concat(ptsMin));
+        var minVal = Math.min.apply(null, ptsHip.concat(ptsMin)) * 0.98;
         var range = (maxVal * 1.02) - minVal;
 
         var labels = ['Base 2025', '2026', '2027', '2028', '2029'];
         var stepX = chartW / (labels.length - 1);
 
-        ctx.fillStyle = '#666';
-        ctx.font = '12px Arial';
+        ctx.fillStyle = '#64748B';
+        ctx.font = '12px "Theo Van Doesburg", Montserrat, sans-serif';
         ctx.textAlign = 'right';
         ctx.textBaseline = 'middle';
         
@@ -651,7 +983,7 @@
             ctx.beginPath();
             ctx.moveTo(padL, y);
             ctx.lineTo(W - padR, y);
-            ctx.strokeStyle = '#eaeaea';
+            ctx.strokeStyle = '#E2E8F0';
             ctx.stroke();
             ctx.fillText(Math.round(v).toString() + " €", padL - 10, y);
         }
@@ -660,7 +992,7 @@
         ctx.textBaseline = 'top';
         for (var j = 0; j < labels.length; j++) {
             var x = padL + j * stepX;
-            ctx.fillText(labels[j], x, H - padB + 10);
+            ctx.fillText(labels[j], x, H - padB + 12);
         }
 
         function drawLine(points, color) {
@@ -672,7 +1004,7 @@
                 else ctx.lineTo(px, py);
             }
             ctx.strokeStyle = color;
-            ctx.lineWidth = 3;
+            ctx.lineWidth = 4;
             ctx.stroke();
 
             for (var m = 0; m < points.length; m++) {
@@ -682,14 +1014,14 @@
                 ctx.arc(px2, py2, 6, 0, Math.PI * 2);
                 ctx.fillStyle = color;
                 ctx.fill();
-                ctx.strokeStyle = '#fff';
-                ctx.lineWidth = 2;
+                ctx.strokeStyle = '#FFFFFF';
+                ctx.lineWidth = 2.5;
                 ctx.stroke();
             }
         }
 
-        drawLine(ptsPre, '#6f7780'); // Gris Propuesta Dirección
-        drawLine(ptsMin, '#E30613'); // Rojo Ministerio
+        drawLine(ptsHip, '#D97706');
+        drawLine(ptsMin, '#E30613');
     }
 
     window.addEventListener('resize', function() {
@@ -700,16 +1032,16 @@
 
     function exportTXT() {
         if (!dSim.baseInit) return;
-        var txt = "CALCULADORA EVOLUCIÓN SALARIAL 2026-2029 - CCOO\n\n";
+        var txt = "COMPARATIVA SALARIAL 2026-2029 - CCOO AIRBUS\n\n";
         txt += "Salario Base 2025: " + formatearMoneda(dSim.baseInit) + "\n\n";
         
-        txt += "--- PROPUESTA DIRECCIÓN (JUNIO) ---\n";
-        txt += "Base final consolidada 2029: " + formatearMoneda(dSim.pre.baseFinal) + "\n";
-        txt += "Dinero adicional acumulado: " + formatearMoneda(dSim.pre.adicional) + "\n\n";
+        txt += "--- HIPÓTESIS 3% DESDE ENERO ---\n";
+        txt += "Base final consolidada 2029: " + formatearMoneda(dSim.hip.baseFinal) + "\n";
+        txt += "Dinero adicional acumulado: " + formatearMoneda(dSim.hip.adicional) + "\n\n";
 
         txt += "--- PROPUESTA MINISTERIO ---\n";
         txt += "Base final consolidada 2029: " + formatearMoneda(dSim.min.baseFinal) + "\n";
-        txt += "Dinero adicional acumulado: " + formatearMoneda(dSim.min.adicional) + "\n\n";
+        txt += "Dinero adicional acumulado (incluye 2.000€ pago único): " + formatearMoneda(dSim.min.adicional) + "\n\n";
 
         txt += "--- DIFERENCIA ACUMULADA ---\n";
         txt += "A favor de Propuesta Ministerio: " + (dSim.diferencia > 0 ? "+" : "") + formatearMoneda(dSim.diferencia) + "\n\n";
@@ -717,7 +1049,7 @@
         var blob = new Blob([txt], { type: 'text/plain;charset=utf-8;' });
         var link = document.createElement("a");
         link.href = URL.createObjectURL(blob);
-        link.download = "Simulacion_Salarial_CCOO.txt";
+        link.download = "Comparativa_Salarial_CCOO.txt";
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
