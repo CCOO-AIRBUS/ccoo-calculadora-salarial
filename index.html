@@ -489,6 +489,31 @@
         .legend-item { display: inline-block; margin: 0 15px; }
         .dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
 
+        /* ESTILO PARA LA IMAGEN DE COLOFÓN AL FINAL DE LA PÁGINA */
+        .bottom-banner-link {
+            display: block;
+            margin: 40px auto 10px auto;
+            text-align: center;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+            text-decoration: none;
+        }
+
+        .bottom-banner-link:hover {
+            transform: scale(1.01);
+            opacity: 0.95;
+        }
+
+        .bottom-banner-link img {
+            width: 100%;
+            max-width: 1150px;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            display: block;
+            margin: 0 auto;
+        }
+
         footer {
             position: fixed;
             bottom: 0;
@@ -525,7 +550,7 @@
         @media print {
             body { background: var(--white); -webkit-print-color-adjust: exact; print-color-adjust: exact; padding-bottom: 0; }
             body::before { display: none; }
-            header, .btn-group, .export-btns, footer { display: none !important; }
+            header, .btn-group, .export-btns, footer, .bottom-banner-link { display: none !important; }
             .container { padding: 0; max-width: 100%; }
             .card, .notice-box, .diff-block, .res-card { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
             table { page-break-inside: avoid; }
@@ -697,6 +722,11 @@
             <button class="btn-outline" onclick="exportTXT()">DESCARGAR TEXTO COMPLETO</button>
         </div>
     </div>
+
+    <!-- IMAGEN DE COLOFÓN AL FINAL DEL TODO CON HIPERVÍNCULO -->
+    <a href="https://ccoo-airbus.github.io/ccoo-calculadora-salarial/" target="_blank" class="bottom-banner-link" title="Visitar CCOO Airbus Calculadora Salarial">
+        <img src="piepaginaccoo.png" alt="CCOO Airbus Pie de Página Banner" onerror="this.src='piepaginaccoo.jpg'">
+    </a>
 </div>
 
 <footer>
