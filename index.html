@@ -141,12 +141,24 @@
             width: 100%;
         }
 
+        /* ESTILOS DE LOS BANNERS INTERACTIVOS DE CABECERA Y COLOFÓN */
+        .banner-hero-link {
+            display: block;
+            margin-bottom: 35px;
+            text-decoration: none;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .banner-hero-link:hover {
+            transform: scale(1.005);
+            opacity: 0.98;
+        }
+
         .banner-hero {
             background: var(--white);
             border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: var(--shadow);
-            margin-bottom: 35px;
             border: 1px solid rgba(226, 232, 240, 0.8);
             backdrop-filter: blur(8px);
         }
@@ -489,7 +501,6 @@
         .legend-item { display: inline-block; margin: 0 15px; }
         .dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
 
-        /* ESTILO PARA LA IMAGEN DE COLOFÓN AL FINAL DE LA PÁGINA */
         .bottom-banner-link {
             display: block;
             margin: 40px auto 10px auto;
@@ -550,7 +561,7 @@
         @media print {
             body { background: var(--white); -webkit-print-color-adjust: exact; print-color-adjust: exact; padding-bottom: 0; }
             body::before { display: none; }
-            header, .btn-group, .export-btns, footer, .bottom-banner-link { display: none !important; }
+            header, .btn-group, .export-btns, footer, .bottom-banner-link, .banner-hero-link { display: none !important; }
             .container { padding: 0; max-width: 100%; }
             .card, .notice-box, .diff-block, .res-card { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
             table { page-break-inside: avoid; }
@@ -570,9 +581,12 @@
 </header>
 
 <div class="container">
-    <div class="banner-hero">
-        <img src="ccoonuevo.jpg" alt="CCOO Airbus Interempresas Banner" onerror="this.src='ccoonuevo.png'">
-    </div>
+    <!-- IMAGEN SUPERIOR CON HIPERVÍNCULO A AFILIACIÓN CCOO -->
+    <a href="https://afiliate.ccoo.es/afiliate.htm" target="_blank" class="banner-hero-link" title="Afíliate a CCOO">
+        <div class="banner-hero">
+            <img src="ccoonuevo.jpg" alt="CCOO Airbus Interempresas Banner" onerror="this.src='ccoonuevo.png'">
+        </div>
+    </a>
 
     <div class="title-group">
         <h1>COMPARATIVA SALARIAL 2026–2029</h1>
