@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comparativa Salarial 2026–2029 - CCOO Airbus Spain</title>
+    <title>Evolución Salarial 2026–2029 - CCOO Airbus Spain</title>
     <!-- Carga de respaldo en Google Fonts por si falla la carga local -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,8 +35,6 @@
             --blue: #005587;
             --dark-blue: #003355;
             --green: #1A7A3A;
-            --amber: #D97706;
-            --amber-bg: #FFFBEB;
             --bg-gray: #F8FAFC;
             --card-bg: rgba(255, 255, 255, 0.94);
             --white: #FFFFFF;
@@ -387,25 +385,27 @@
             font-family: var(--font-family);
         }
 
-        .cards-grid-2 {
+        .cards-grid-single {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 24px;
             margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .res-card {
-            padding: 28px;
+            padding: 32px;
             border-radius: var(--border-radius);
             color: var(--white);
             box-shadow: var(--shadow-lg);
         }
 
-        .res-card.amber { background: linear-gradient(135deg, #D97706 0%, #B45309 100%); }
         .res-card.red { background: linear-gradient(135deg, var(--ccoo-red) 0%, var(--dark-red) 100%); }
 
         .res-card h4 {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: bold;
             margin-bottom: 16px;
             border-bottom: 1px solid rgba(255,255,255,0.25);
@@ -415,48 +415,23 @@
         }
 
         .res-card .main-val {
-            font-size: 36px;
+            font-size: 38px;
             font-weight: bold;
             margin-bottom: 12px;
             letter-spacing: -0.5px;
         }
 
         .res-card .sub-val {
-            font-size: 15px;
+            font-size: 16px;
             background: rgba(0,0,0,0.18);
             padding: 8px 14px;
             border-radius: 6px;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             font-weight: bold;
             display: inline-block;
         }
 
-        .res-card .info-text { font-size: 13px; opacity: 0.92; line-height: 1.4; }
-
-        .diff-block {
-            background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
-            border-left: 8px solid var(--green);
-            padding: 32px;
-            border-radius: var(--border-radius);
-            color: #065F46;
-            text-align: center;
-            margin: 40px 0;
-            box-shadow: var(--shadow);
-            border-top: 1px solid #A7F3D0;
-            border-right: 1px solid #A7F3D0;
-            border-bottom: 1px solid #A7F3D0;
-        }
-
-        .diff-block h3 {
-            font-size: 22px;
-            font-weight: bold;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-            font-family: var(--font-family);
-        }
-
-        .diff-block h4 { font-size: 15px; font-weight: 600; margin-bottom: 20px; color: #047857; }
-        .diff-block .diff-val { font-size: 52px; font-weight: bold; margin-bottom: 10px; letter-spacing: -1px; }
+        .res-card .info-text { font-size: 14px; opacity: 0.92; line-height: 1.5; margin-top: 6px; }
 
         .table-responsive {
             overflow-x: auto;
@@ -479,9 +454,7 @@
         }
 
         td:first-child { text-align: center; font-weight: bold; background-color: #F8FAFC; color: #334155; }
-        .col-amber { background-color: #FFFBEB; }
         .col-red { background-color: #FEF2F2; }
-        .th-amber { background-color: var(--amber) !important; }
         .th-red { background-color: var(--ccoo-red) !important; }
 
         .small-txt { display: block; font-size: 11px; color: #64748B; margin-top: 4px; text-align: right; font-weight: normal; }
@@ -551,16 +524,13 @@
             .logo { margin: 0 auto; }
             .header-spacer { display: none; }
             .header-title { font-size: 16px; grid-column: 1; }
-            .cards-grid-2 { grid-template-columns: 1fr; }
             .grid-4 { grid-template-columns: 1fr 1fr; }
             body { padding-bottom: 160px; }
-            .diff-block .diff-val { font-size: 38px; }
             .res-card .main-val { font-size: 30px; }
             h1 { font-size: 26px; }
             .subtitle { font-size: 18px; }
             .card { padding: 20px 16px; }
 
-            /* AJUSTE PARA BOTONES DE ENTRADA DE DATOS EN MÓVIL EN LA MISMA FILA */
             .btn-group {
                 gap: 8px;
                 margin-top: 25px;
@@ -578,7 +548,7 @@
             body::before { display: none; }
             header, .btn-group, .export-btns, footer, .bottom-banner-link, .banner-hero-link { display: none !important; }
             .container { padding: 0; max-width: 100%; }
-            .card, .notice-box, .diff-block, .res-card { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
+            .card, .notice-box, .res-card { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
             table { page-break-inside: avoid; }
         }
     </style>
@@ -590,7 +560,7 @@
         <img src="ccoo industria airbus.png" alt="CCOO Industria Airbus" onerror="this.style.display='none'">
     </div>
     <div class="header-title">
-        Calculadora de evolución salarial 2026-2029
+        Evolución Salarial 2026-2029
     </div>
     <div class="header-spacer"></div>
 </header>
@@ -604,16 +574,15 @@
     </a>
 
     <div class="title-group">
-        <h1>COMPARATIVA SALARIAL 2026–2029</h1>
-        <div class="subtitle">Hipótesis 3% desde Enero vs. Propuesta del Ministerio</div>
-        <p class="desc-text">Herramienta de simulación sindical para evaluar el impacto del ciclo y la mitigación del efecto abril.</p>
+        <h1>EVOLUCIÓN SALARIAL 2026–2029</h1>
+        <div class="subtitle">Simulación de evolución salarial con la aplicación de la propuesta del Ministerio</div>
+        <p class="desc-text">Herramienta de simulación sindical para evaluar la proyección y evolución del salario base con la propuesta del Ministerio.</p>
         <span class="privacy-note">🔒 Los datos se calculan únicamente en tu navegador: no se almacenan ni se envían.</span>
     </div>
 
     <div class="notice-box">
-        <h3>Marco de comparación y contexto metodológico</h3>
+        <h3>Contexto metodológico de la propuesta</h3>
         <p><strong>Ámbito temporal estricto:</strong> Esta simulación cubre de forma exclusiva el ciclo <strong>2026–2029</strong>. Carece de rigor proyectar este tipo de escenarios más allá de 2029, ya que no existen marcos de negociación colectiva ni convenios firmados para años posteriores.</p>
-        <p><strong>Hipótesis de 3% desde enero:</strong> Simula un escenario ideal de incremento salarial fijo del 3% aplicado cada año de forma ininterrumpida desde el mes de enero. Cabe destacar que una aplicación continuada en enero jamás estuvo disponible como opción real sobre la mesa (la tónica habitual de la dirección sitúa las revisiones en abril).</p>
         <p><strong>Propuesta del Ministerio:</strong> Combina la garantía de IPC real + diferencial aplicando el efecto enero en los dos primeros años (2026 y 2027) y adaptándose al marco de homogeneización temporal del grupo en el mes de abril a partir de 2028.</p>
         <p><strong>Mitigación del "efecto abril":</strong> Con el fin de equilibrar el decalaje temporal que supone trasladar la revisión al mes de abril en 2028 y 2029 (homogeneizándonos con el resto de países del grupo), la propuesta incorpora un <strong>pago único no consolidable de 2.000 € brutos</strong> en octubre de 2026, neutralizando así cualquier diferencia acumulada para la plantilla.</p>
     </div>
@@ -662,7 +631,7 @@
         <div id="error-msg" class="error-msg"></div>
 
         <div class="btn-group">
-            <button class="btn-primary" onclick="calcular()">CALCULAR COMPARATIVA</button>
+            <button class="btn-primary" onclick="calcular()">CALCULAR EVOLUCIÓN</button>
             <button class="btn-secondary" onclick="restablecer()">RESTABLECER EJEMPLO</button>
         </div>
     </div>
@@ -670,63 +639,27 @@
     <!-- Resultados -->
     <div id="results-panel">
         
-        <div class="result-section-title">1. Base Salarial Final (Consolidada al cierre de 2029)</div>
-        <div class="cards-grid-2">
-            <div class="res-card amber">
-                <h4>SALARIO BASE 2029: HIPÓTESIS 3% DESDE ENERO</h4>
-                <div class="main-val" id="res-base-hip">0,00 €</div>
-                <div class="sub-val" id="res-cons-hip">Subida frente a 2025: +0,00 €</div>
-                <div class="info-text">Aplicación fija del 3% cada año desde enero (escenario ideal limitado a 2026-2029).</div>
-            </div>
+        <div class="result-section-title">1. Proyección Salarial al Cierre del Ciclo (2029)</div>
+        <div class="cards-grid-single">
             <div class="res-card red">
                 <h4>SALARIO BASE 2029: PROPUESTA MINISTERIO</h4>
                 <div class="main-val" id="res-base-min">0,00 €</div>
                 <div class="sub-val" id="res-cons-min">Subida frente a 2025: +0,00 €</div>
-                <div class="info-text">Resultante de aplicar IPC + diferencial (con efecto abril en 2028-2029).</div>
-            </div>
-        </div>
-
-        <div class="result-section-title">2. Total de dinero extra ganado (2026–2029)</div>
-        <div class="cards-grid-2">
-            <div class="res-card amber">
-                <h4>DINERO ADICIONAL: HIPÓTESIS 3% DESDE ENERO</h4>
-                <div class="main-val" id="res-add-hip">0,00 €</div>
-                <div class="info-text">Cantidad cobrada de más respecto a mantener congelado el salario de 2025.</div>
-                <div class="info-text" style="margin-top: 10px; opacity: 0.8; font-weight: bold;" id="res-tot-hip">Total percibido 2026-2029: 0,00 €</div>
-            </div>
-            <div class="res-card red">
-                <h4>DINERO ADICIONAL: PROPUESTA MINISTERIO</h4>
-                <div class="main-val" id="res-add-min">0,00 €</div>
-                <div class="info-text">Cantidad cobrada de más respecto a mantener congelado el salario de 2025. Incluye pago único de 2.000 € para compensar el efecto abril.</div>
-                <div class="info-text" style="margin-top: 10px; opacity: 0.8; font-weight: bold;" id="res-tot-min">Total percibido 2026-2029 (incl. 2.000€): 0,00 €</div>
-            </div>
-        </div>
-
-        <div class="diff-block">
-            <h3>DIFERENCIA ACUMULADA ENTRE AMBAS OPCIONES 2026–2029</h3>
-            <h4>Propuesta del Ministerio (con 2.000 € de pago único) frente a Hipótesis 3% desde Enero</h4>
-            <div class="diff-val" id="res-diff-val">0,00 €</div>
-            <div class="diff-note">Diferencia de dinero adicional acumulado entre ambas opciones durante el ciclo completo.</div>
-        </div>
-
-        <div class="card">
-            <h2>TABLA COMPARATIVA RESUMEN</h2>
-            <div class="table-responsive">
-                <table id="summary-table"></table>
+                <div class="info-text" id="res-tot-min">Total percibido en el ciclo 2026-2029 (incl. pago único 2.000€): 0,00 €</div>
+                <div class="info-text" id="res-add-min">Dinero extra ganado respecto a congelar el salario de 2025: +0,00 €</div>
             </div>
         </div>
 
         <div class="card">
-            <h2>EVOLUCIÓN DE LA BASE SALARIAL: DOS ESCENARIOS</h2>
+            <h2>EVOLUCIÓN DE LA BASE SALARIAL</h2>
             <div class="chart-legend">
-                <span class="legend-item"><span class="dot" style="background: var(--amber);"></span>Hipótesis 3% desde Enero</span>
                 <span class="legend-item"><span class="dot" style="background: var(--ccoo-red);"></span>Propuesta Ministerio (Enero '26-'27 / Abril '28-'29)</span>
             </div>
             <div class="chart-container">
                 <canvas id="chartCanvas"></canvas>
             </div>
             <p style="text-align: center; font-size: 13px; color: var(--text-muted); margin-top: 15px;">
-                Ámbar: Hipótesis 3% desde enero. Rojo: Propuesta del Ministerio (con revisión en abril para 2028 y 2029).<br>La gráfica representa la base salarial consolidada.
+                La gráfica representa la base salarial consolidada año a año con la propuesta del Ministerio.
             </p>
         </div>
 
@@ -736,14 +669,14 @@
                 <table id="annual-table"></table>
             </div>
             <p style="font-size: 12px; color: var(--text-muted); margin-top: 15px;">
-                * El pago único de 2.000 € brutos (octubre 2026) se suma al total percibido de la Propuesta del Ministerio para mitigar con holgura el decalaje temporal del efecto abril en los últimos años del ciclo.
+                * El pago único de 2.000 € brutos (octubre 2026) se suma al total percibido en 2026 para mitigar con holgura el decalaje temporal del efecto abril en los últimos años del ciclo.
             </p>
         </div>
 
         <div class="card">
             <h2>Metodología, límites y letra pequeña</h2>
-            <p style="font-size:14px; line-height:1.6; color: #334155;">Simulación orientativa para Airbus Spain restringida estrictamente al ciclo 2026–2029. La hipótesis contrasta una subida lineal fija del 3% anual desde enero frente a la propuesta del Ministerio (IPC + 2% en 2026-2028 con efecto enero en 26-27 y abril en 28; e IPC + 1,95% en 2029 con efecto abril), incorporando los 2.000 € de pago único no consolidable.</p>
-            <p style="font-size:14px; line-height:1.6; color: #334155; margin-top: 12px;"><strong>Sobre las pagas extras:</strong> El cálculo asume el devengo strictly legal y proporcional de las pagas extras en los años con cambio de tablas (2028 y 2029). Si la empresa decidiera abonar la extra de verano íntegra con las nuevas tablas por simplicidad administrativa, el dinero real percibido a favor del trabajador sería ligeramente superior al mostrado en esta simulación.</p>
+            <p style="font-size:14px; line-height:1.6; color: #334155;">Simulación orientativa para Airbus Spain restringida estrictamente al ciclo 2026–2029 en base a la propuesta del Ministerio (IPC + 2% en 2026-2028 con efecto enero en 26-27 y abril en 28; e IPC + 1,95% en 2029 con efecto abril), incorporando los 2.000 € de pago único no consolidable.</p>
+            <p style="font-size:14px; line-height:1.6; color: #334155; margin-top: 12px;"><strong>Sobre las pagas extras:</strong> El cálculo asume el devengo estrictamente legal y proporcional de las pagas extras en los años con cambio de tablas (2028 y 2029). Si la empresa decidiera abonar la extra de verano íntegra con las nuevas tablas por simplicidad administrativa, el dinero real percibido a favor del trabajador sería ligeramente superior al mostrado en esta simulación.</p>
         </div>
 
         <div class="btn-group export-btns" style="margin-bottom: 25px;">
@@ -861,21 +794,6 @@
         var pagoUnico = 2000;
         var refCongelada = baseInit * 4;
 
-        var hipBases = [];
-        var hipPercs = [];
-        var currHipBase = baseInit;
-        var totHipPerc = 0;
-
-        for (var i = 0; i < 4; i++) {
-            currHipBase = currHipBase * 1.03;
-            hipBases.push(currHipBase);
-            hipPercs.push(currHipBase);
-            totHipPerc += currHipBase;
-        }
-        var hipAdicional = totHipPerc - refCongelada;
-        var hipSubidaEuros = currHipBase - baseInit;
-        var hipSubidaPct = ((currHipBase / baseInit) - 1) * 100;
-
         var minPct26 = ipc26 + 2.0;
         var minBase26 = baseInit * (1 + minPct26/100);
         var minPerc26 = minBase26;
@@ -901,20 +819,13 @@
         var minSubidaEuros = minBase29 - baseInit;
         var minSubidaPct = ((minBase29 / baseInit) - 1) * 100;
 
-        var diferencia = minTotPerc - totHipPerc;
-
         return {
             baseInit: baseInit, pagoUnico: pagoUnico,
             ipcs: [ipc26, ipc27, ipc28, ipc29],
-            hip: {
-                bases: hipBases, percs: hipPercs,
-                totPerc: totHipPerc, adicional: hipAdicional, subidaEuros: hipSubidaEuros, subidaPct: hipSubidaPct, baseFinal: currHipBase
-            },
             min: {
                 pcts: minPcts, bases: minBases, percs: minPercs,
                 totPerc: minTotPerc, adicional: minAdicional, subidaEuros: minSubidaEuros, subidaPct: minSubidaPct, baseFinal: minBase29
-            },
-            diferencia: diferencia
+            }
         };
     }
 
@@ -951,32 +862,12 @@
     }
 
     function renderResultados() {
-        document.getElementById('res-base-hip').innerText = formatearMoneda(dSim.hip.baseFinal);
-        document.getElementById('res-cons-hip').innerText = "Subida: +" + formatearMoneda(dSim.hip.subidaEuros) + " (+" + formatearPorcentaje(dSim.hip.subidaPct) + "%)";
-        
         document.getElementById('res-base-min').innerText = formatearMoneda(dSim.min.baseFinal);
-        document.getElementById('res-cons-min').innerText = "Subida: +" + formatearMoneda(dSim.min.subidaEuros) + " (+" + formatearPorcentaje(dSim.min.subidaPct) + "%)";
+        document.getElementById('res-cons-min').innerText = "Subida frente a 2025: +" + formatearMoneda(dSim.min.subidaEuros) + " (+" + formatearPorcentaje(dSim.min.subidaPct) + "%)";
+        document.getElementById('res-tot-min').innerText = "Total percibido en el ciclo 2026-2029 (incl. pago único 2.000€): " + formatearMoneda(dSim.min.totPerc);
+        document.getElementById('res-add-min').innerText = "Dinero extra ganado respecto a congelar el salario de 2025: +" + formatearMoneda(dSim.min.adicional);
 
-        document.getElementById('res-add-hip').innerText = formatearMoneda(dSim.hip.adicional);
-        document.getElementById('res-tot-hip').innerText = "Total percibido 2026-2029: " + formatearMoneda(dSim.hip.totPerc);
-
-        document.getElementById('res-add-min').innerText = formatearMoneda(dSim.min.adicional);
-        document.getElementById('res-tot-min').innerText = "Total percibido 2026-2029 (incl. 2.000€): " + formatearMoneda(dSim.min.totPerc);
-
-        var elDiff = document.getElementById('res-diff-val');
-        elDiff.innerText = (dSim.diferencia >= 0 ? "+" : "") + formatearMoneda(dSim.diferencia);
-        elDiff.style.color = dSim.diferencia >= 0 ? "#065F46" : "var(--ccoo-red)";
-
-        var stHTML = "<thead><tr><th>CONCEPTO</th><th class='th-amber'>HIPÓTESIS 3% DESDE ENERO</th><th class='th-red'>PROPUESTA MINISTERIO</th></tr></thead><tbody>";
-        stHTML += "<tr><td>Base 2025</td><td class='col-amber'>" + formatearMoneda(dSim.baseInit) + "</td><td class='col-red'>" + formatearMoneda(dSim.baseInit) + "</td></tr>";
-        stHTML += "<tr><td>Base tras 2029</td><td class='col-amber'>" + formatearMoneda(dSim.hip.baseFinal) + "</td><td class='col-red'>" + formatearMoneda(dSim.min.baseFinal) + "</td></tr>";
-        stHTML += "<tr><td>Subida acumulada</td><td class='col-amber'>+" + formatearMoneda(dSim.hip.subidaEuros) + " (+" + formatearPorcentaje(dSim.hip.subidaPct) + "%)</td><td class='col-red'>+" + formatearMoneda(dSim.min.subidaEuros) + " (+" + formatearPorcentaje(dSim.min.subidaPct) + "%)</td></tr>";
-        stHTML += "<tr><td>Dinero adicional cobrado</td><td class='col-amber'>" + formatearMoneda(dSim.hip.adicional) + "</td><td class='col-red'>" + formatearMoneda(dSim.min.adicional) + "</td></tr>";
-        stHTML += "<tr><td>Pago único 2.000€ (Mitigación)</td><td class='col-amber'>No aplica</td><td class='col-red'>Incluido (Oct. 2026)</td></tr>";
-        stHTML += "</tbody>";
-        document.getElementById('summary-table').innerHTML = stHTML;
-
-        var anHTML = "<thead><tr><th>Año</th><th>IPC</th><th class='th-amber'>Hipótesis 3% (Enero)</th><th class='th-amber'>Base Hipótesis</th><th class='th-amber'>Percibido Hipótesis</th><th class='th-red'>Subida Ministerio</th><th class='th-red'>Base Ministerio</th><th class='th-red'>Percibido Ministerio</th></tr></thead><tbody>";
+        var anHTML = "<thead><tr><th>Año</th><th>IPC</th><th class='th-red'>Subida Aplicada (Ministerio)</th><th class='th-red'>Base Salarial Consolidada</th><th class='th-red'>Salario Percibido en el Año</th></tr></thead><tbody>";
         
         var anos = [2026, 2027, 2028, 2029];
         for(var i=0; i<4; i++) {
@@ -984,9 +875,6 @@
             anHTML += "<tr>";
             anHTML += "<td>" + anos[i] + "</td>";
             anHTML += "<td>" + formatearPorcentaje(dSim.ipcs[i]) + "%</td>";
-            anHTML += "<td class='col-amber'>3,00% (Enero)</td>";
-            anHTML += "<td class='col-amber'>" + formatearMoneda(dSim.hip.bases[i]) + "</td>";
-            anHTML += "<td class='col-amber'>" + formatearMoneda(dSim.hip.percs[i]) + "</td>";
             anHTML += "<td class='col-red'>" + formatearPorcentaje(dSim.min.pcts[i]) + "%<span class='small-txt'>" + descMin + "</span></td>";
             anHTML += "<td class='col-red'>" + formatearMoneda(dSim.min.bases[i]) + "</td>";
             anHTML += "<td class='col-red'>" + formatearMoneda(dSim.min.percs[i]) + (i===0 ? " <span class='small-txt'>(+2.000€ pago único)</span>" : "") + "</td>";
@@ -1021,11 +909,10 @@
         var chartW = W - padL - padR;
         var chartH = H - padB - padT;
 
-        var ptsHip = [dSim.baseInit].concat(dSim.hip.bases);
         var ptsMin = [dSim.baseInit].concat(dSim.min.bases);
 
-        var maxVal = Math.max.apply(null, ptsHip.concat(ptsMin));
-        var minVal = Math.min.apply(null, ptsHip.concat(ptsMin)) * 0.98;
+        var maxVal = Math.max.apply(null, ptsMin);
+        var minVal = Math.min.apply(null, ptsMin) * 0.98;
         var range = (maxVal * 1.02) - minVal;
 
         var labels = ['Base 2025', '2026', '2027', '2028', '2029'];
@@ -1079,7 +966,6 @@
             }
         }
 
-        drawLine(ptsHip, '#D97706');
         drawLine(ptsMin, '#E30613');
     }
 
@@ -1091,24 +977,16 @@
 
     function exportTXT() {
         if (!dSim.baseInit) return;
-        var txt = "COMPARATIVA SALARIAL 2026-2029 - CCOO AIRBUS\n\n";
+        var txt = "EVOLUCIÓN SALARIAL 2026-2029 (PROPUESTA MINISTERIO) - CCOO AIRBUS\n\n";
         txt += "Salario Base 2025: " + formatearMoneda(dSim.baseInit) + "\n\n";
-        
-        txt += "--- HIPÓTESIS 3% DESDE ENERO ---\n";
-        txt += "Base final consolidada 2029: " + formatearMoneda(dSim.hip.baseFinal) + "\n";
-        txt += "Dinero adicional acumulado: " + formatearMoneda(dSim.hip.adicional) + "\n\n";
-
-        txt += "--- PROPUESTA MINISTERIO ---\n";
         txt += "Base final consolidada 2029: " + formatearMoneda(dSim.min.baseFinal) + "\n";
-        txt += "Dinero adicional acumulado (incluye 2.000€ pago único): " + formatearMoneda(dSim.min.adicional) + "\n\n";
-
-        txt += "--- DIFERENCIA ACUMULADA ---\n";
-        txt += "A favor de Propuesta Ministerio: " + (dSim.diferencia > 0 ? "+" : "") + formatearMoneda(dSim.diferencia) + "\n\n";
+        txt += "Total percibido 2026-2029 (incl. 2.000€): " + formatearMoneda(dSim.min.totPerc) + "\n";
+        txt += "Dinero adicional ganado: " + formatearMoneda(dSim.min.adicional) + "\n\n";
 
         var blob = new Blob([txt], { type: 'text/plain;charset=utf-8;' });
         var link = document.createElement("a");
         link.href = URL.createObjectURL(blob);
-        link.download = "Comparativa_Salarial_CCOO.txt";
+        link.download = "Evolucion_Salarial_CCOO.txt";
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
